@@ -6,12 +6,14 @@ class residualLSTM(tf.keras.Model):
     def __init__(self, num_neurons, input_shape, output_shape):
         super(residualLSTM, self).__init__()
         self.lstm1 = tf.keras.layers.LSTM(num_neurons, activation='elu', return_sequences=True, kernel_constraint=tf.keras.constraints.NonNeg())
-        self.dense1 = tf.keras.layers.Dense(input_shape, activation='elu', kernel_constraint=tf.keras.constraints.NonNeg())
+        self.dense1 = tf.keras.layers.Dense(input_shape, activation=None, kernel_constraint=tf.keras.constraints.NonNeg())
         self.skip1 = tf.keras.layers.Add()
+        self.activation1 = tf.keras.layers.Activation('elu')
 
         self.lstm2 = tf.keras.layers.LSTM(num_neurons, activation='elu', return_sequences=True, kernel_constraint=tf.keras.constraints.NonNeg())
-        self.dense2 = tf.keras.layers.Dense(input_shape, activation='elu', kernel_constraint=tf.keras.constraints.NonNeg())
+        self.dense2 = tf.keras.layers.Dense(input_shape, activation=None, kernel_constraint=tf.keras.constraints.NonNeg())
         self.skip2 = tf.keras.layers.Add()
+        self.activation2 = tf.keras.layers.Activation('elu')
 
         self.dense3 = tf.keras.layers.Dense(output_shape, activation='linear', kernel_constraint=tf.keras.constraints.NonNeg())
 
@@ -19,10 +21,12 @@ class residualLSTM(tf.keras.Model):
         x = self.lstm1(input_tensor)
         x = self.dense1(x)
         x = self.skip1([x, input_tensor])
+        x = self.activation1(x)
 
         x = self.lstm2(x)
         x = self.dense2(x)
         x = self.skip2([x, input_tensor])
+        x = self.activation2(x)
 
         output = self.dense3(x)
         return output
@@ -31,12 +35,14 @@ class residualRNN(tf.keras.Model):
     def __init__(self, num_neurons, input_shape, output_shape):
         super(residualRNN, self).__init__()
         self.rnn1 = tf.keras.layers.SimpleRNN(num_neurons, activation='elu', return_sequences=True, kernel_constraint=tf.keras.constraints.NonNeg())
-        self.dense1 = tf.keras.layers.Dense(input_shape, activation='elu', kernel_constraint=tf.keras.constraints.NonNeg())
+        self.dense1 = tf.keras.layers.Dense(input_shape, activation=None, kernel_constraint=tf.keras.constraints.NonNeg())
         self.skip1 = tf.keras.layers.Add()
+        self.activation1 = tf.keras.layers.Activation('elu')
 
         self.rnn2 = tf.keras.layers.SimpleRNN(num_neurons, activation='elu', return_sequences=True, kernel_constraint=tf.keras.constraints.NonNeg())
-        self.dense2 = tf.keras.layers.Dense(input_shape, activation='elu', kernel_constraint=tf.keras.constraints.NonNeg())
+        self.dense2 = tf.keras.layers.Dense(input_shape, activation=None, kernel_constraint=tf.keras.constraints.NonNeg())
         self.skip2 = tf.keras.layers.Add()
+        self.activation2 = tf.keras.layers.Activation('elu')
 
         self.dense3 = tf.keras.layers.Dense(output_shape, activation='linear', kernel_constraint=tf.keras.constraints.NonNeg())
 
@@ -44,10 +50,12 @@ class residualRNN(tf.keras.Model):
         x = self.rnn1(input_tensor)
         x = self.dense1(x)
         x = self.skip1([x, input_tensor])
+        x = self.activation1(x)
 
         x = self.rnn2(x)
         x = self.dense2(x)
         x = self.skip2([x, input_tensor])
+        x = self.activation2(x)
 
         output = self.dense3(x)
         return output
