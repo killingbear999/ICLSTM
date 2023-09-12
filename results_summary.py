@@ -76,3 +76,6 @@ plt.xlabel("C_A - C_As")
 plt.ylabel("T - T_s")
 plt.legend()
 plt.show()
+
+# visulaize the model architecture
+tf.keras.utils.plot_model(model, show_shapes=True, show_layer_names=False)
