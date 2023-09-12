@@ -29,7 +29,7 @@ class resCNN1D(tf.keras.Model):
     output = self.reshape1(x)
     return output
 
-model = resCNN1D(num_neurons=64, kernel_size=3, len_sequence=X_train.shape[1], num_feature=X_train.shape[2], output_shape=y_train.shape[2])
-model.compile(optimizer='adam', loss='mean_squared_error', metrics=[tf.keras.metrics.MeanSquaredError()])
-history = model.fit(X_train, y_train, epochs=500, batch_size=256, validation_split=0.25, verbose=2)
-model.summary()
+# model = resCNN1D(num_neurons=64, kernel_size=3, len_sequence=X_train.shape[1], num_feature=X_train.shape[2], output_shape=y_train.shape[2])
+# model.compile(optimizer='adam', loss='mean_squared_error', metrics=[tf.keras.metrics.MeanSquaredError()])
+# history = model.fit(X_train, y_train, epochs=500, batch_size=256, validation_split=0.25, verbose=2)
+# model.summary()
