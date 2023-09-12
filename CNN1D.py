@@ -5,11 +5,14 @@ class CNN1D(tf.keras.Model):
     super(CNN1D, self).__init__()
     self.cnn1 = tf.keras.layers.Conv1D(filters=num_neurons, kernel_size=kernel_size, activation='relu', input_shape=(len_sequence,num_feature))
     self.maxpool1 = tf.keras.layers.MaxPooling1D(pool_size=2)
+    
     self.cnn2 = tf.keras.layers.Conv1D(filters=num_neurons, kernel_size=kernel_size, activation='relu')
     self.maxpool2 = tf.keras.layers.MaxPooling1D(pool_size=2)
+    
     self.flatten1 = tf.keras.layers.Flatten()
     self.dense1 = tf.keras.layers.Dense(128,activation='relu')
     self.dense2 = tf.keras.layers.Dense(len_sequence * output_shape, activation='linear')
+    
     self.reshape1 = tf.keras.layers.Reshape((len_sequence, output_shape))
 
   def call(self, input_tensor):
