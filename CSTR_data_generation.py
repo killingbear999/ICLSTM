@@ -16,7 +16,7 @@ delta_H = -1.15*(np.power(10,4))
 R = 8.314
 C_A0s = 4
 C_As = 1.9537
-t_final = 0.01
+t_final = 0.005
 t_step = 1e-4
 P = np.array([[1060, 22], [22, 0.52]])
 num_dims = 8
@@ -118,15 +118,15 @@ T_input_neg = T_input_neg.reshape(-1,1,1)
 # RNN_input = np.concatenate((T_input, CA_input, Q_input, CA0_input), axis=2)
 RNN_input = np.concatenate((T_input, CA_input, Q_input, CA0_input, T_input_neg, CA_input_neg, Q_input_neg, CA0_input_neg), axis=2)
 
-RNN_input = RNN_input.repeat(20, axis=1)
+RNN_input = RNN_input.repeat(10, axis=1)
 print("RNN_input shape is {}".format(RNN_input.shape))
 
 # collate output for RNN
 CA_output = np.array(CA_output)
-CA_output = CA_output.reshape(-1, 20, 1)
+CA_output = CA_output.reshape(-1, 10, 1)
 
 T_output = np.array(T_output)
-T_output = T_output.reshape(-1, 20, 1)
+T_output = T_output.reshape(-1, 10, 1)
 
 RNN_output = np.concatenate((T_output, CA_output), axis=2)
 print("RNN_output shape is {}".format(RNN_output.shape))
@@ -138,9 +138,9 @@ X_train, X_test, y_train, y_test = train_test_split(RNN_input, RNN_output, test_
 scaler_X = preprocessing.StandardScaler().fit(X_train.reshape(-1, num_dims))
 scaler_y = preprocessing.StandardScaler().fit(y_train.reshape(-1, 2))
 
-X_train = scaler_X.transform(X_train.reshape(-1, num_dims)).reshape(-1,20,num_dims)
-X_test = scaler_X.transform(X_test.reshape(-1, num_dims)).reshape(-1,20,num_dims)
-y_train = scaler_y.transform(y_train.reshape(-1,2)).reshape(-1,20,2)
+X_train = scaler_X.transform(X_train.reshape(-1, num_dims)).reshape(-1,10,num_dims)
+X_test = scaler_X.transform(X_test.reshape(-1, num_dims)).reshape(-1,10,num_dims)
+y_train = scaler_y.transform(y_train.reshape(-1,2)).reshape(-1,10,2)
 
 print("mean of input T, CA, Q, CA0 = ", scaler_X.mean_)
 print("std of input T, CA, Q, CA0 = ", scaler_X.scale_)
