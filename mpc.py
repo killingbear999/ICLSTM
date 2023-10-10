@@ -1,23 +1,12 @@
 from __future__ import print_function
 import tensorflow as tf
-import pandas
-import keras
-from keras.models import Sequential
-from keras.layers import Dense, BatchNormalization
-from keras.callbacks import EarlyStopping
-from scipy.optimize import NonlinearConstraint, LinearConstraint
-from scipy.optimize import BFGS, minimize, Bounds, SR1
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM, SimpleRNN
 from keras import backend as K
 import numpy
-from keras.models import model_from_json, load_model
+from keras.models import load_model
 from pathlib import Path
 import os.path
 import time
 import os
-import math
 import pyipopt
 from numpy import *
 
@@ -77,14 +66,15 @@ class MyRNNCell(tf.keras.layers.Layer):
         return config
 
 #####Simulation time step
-delta=0.01
+delta=0.005
 hc=1e-4 #delta/100
 oper_time=0.01
-
 short_factor=int(0.01/delta)
+
 ####Initial states
 CAi=1.5
 Ti=-70
+
 x1_nn=CAi
 x2_nn=Ti
 x1_record=[CAi]
@@ -111,6 +101,7 @@ cp=0.231
 Qs=0
 CA0s=4
 x_record=[0,0]
+
 #steady-state
 CAs= 1.9537
 Ts=  401.8727
@@ -119,18 +110,17 @@ w1_std=2.5
 w2_std=70
 state_ss=numpy.array([Ts, CAs])
 input_ss=numpy.array([Qs, CA0s])
-
 ROOT_FOLDER=os.getcwd()
+
 #### CONSTANTS ####
 NUM_MPC_ITERATION=20*short_factor   #10000000000
-
 OUTPUT_NO=0
 TOTAL_MODELS=12
 NUM_SUBMODELS=1
 NUM_OUTPUTS=2
 NUM_INPUTS=8 
 HORIZON=2
-NUM_IN_SEQUENCE=20
+NUM_IN_SEQUENCE=10
 PREDICTION_STORE=0
 deviation=0
 NUM_MPC_INPUTS=2*HORIZON
@@ -170,7 +160,6 @@ def my_ens_prediction(num_horizon,my_rawdata,my_inputs):
         x_test2 = predict_output[int(NUM_IN_SEQUENCE/short_factor-1), 0:2]
         x_test2=x_test2 * output_std + output_mean
         x_test2 = (x_test2 - state_mean) / state_std
-
 
         # RESCALING BY THE CORRESPONDING STANDARD DEVIATION & THE MEAN OF THE OUTPUT STATISTICS OF THE EXITING SURFACE
         predict_output_normal = predict_output * output_std + output_mean
@@ -226,27 +215,15 @@ def eval_g(x):
     Td2=realtime_data[0]
     g=array([-5.0]*NUM_MPC_CONSTRAINTS)
 
-    # if ((a*CAd2**2+d*Td2**2+2*b*CAd2*Td2-2)> 0):
-    #     df_ensemble_output3 = my_ens_prediction(num_horizon=1,my_rawdata=realtime_data, my_inputs=x)
-    #     est_outlet = df_ensemble_output3[-1, -1, 0:2].reshape(1,2)
-    #     dot_V1=(2*a * CAd2 + 2*b * Td2)*((est_outlet[0][1])-CAd2)/(0.01)+\
-    #             (2*d*Td2 + 2*b * CAd2)*((est_outlet[0][0])-Td2)/(0.01)
-
-    #     vv=a*CAd2**2+d*Td2**2+2*b*CAd2*Td2
-    #     g[0]=dot_V1+15*abs(vv/100)
-    # else:
-    #     df_ensemble_output2 = my_ens_prediction(num_horizon=int(NUM_MPC_INPUTS / 2), my_rawdata=realtime_data,
-    #                                            my_inputs=x)
-    #     #####  only account for the last point #####
-    #     for j in range(int(NUM_MPC_INPUTS / 2)):
-    #         est_outlet_product2 = df_ensemble_output2[j, int(NUM_IN_SEQUENCE/short_factor-1), 0:2]  #int(NUM_IN_SEQUENCE/2-1)
-    #         g[j]= d * (est_outlet_product2[0]) ** 2+ 2 * b * (est_outlet_product2[0])*(est_outlet_product2[1]) + \
-    #               a*(est_outlet_product2[1]) ** 2 -2
+    df_ensemble_output2 = my_ens_prediction(num_horizon=int(NUM_MPC_INPUTS / 2), my_rawdata=realtime_data, my_inputs=x)
+    for j in range(int(NUM_MPC_INPUTS / 2)):
+        est_outlet_product2 = df_ensemble_output2[j, int(NUM_IN_SEQUENCE/short_factor-1), 0:2]
+        g[j]= d * (est_outlet_product2[0]) ** 2+ 2 * b * (est_outlet_product2[0])*(est_outlet_product2[1]) + \
+                a*(est_outlet_product2[1]) ** 2 - a*CAd2**2 - 2*b*CAd2*Td2 - d*Td2**2
 
     return  g
 
 nnzj = NUM_MPC_CONSTRAINTS*NUM_MPC_INPUTS
-
 
 def eval_jac_g(x, flag):
     if flag:
@@ -280,7 +257,6 @@ def apply_new(x):
 def print_variable(variable_name, value):
     for i in range(len(value)):
         print("{} {}".format(variable_name + "["+str(i)+"] =", value[i]))
-
 
 nnzh = NUM_MPC_INPUTS**2
 
@@ -324,7 +300,6 @@ for item in test:
     if item.endswith(".txt"):
         os.remove(os.path.join(dir_name, item))
 
-
 nvar = NUM_MPC_INPUTS
 x_lower=[0]* nvar
 x_upper=[0]* nvar
@@ -342,7 +317,6 @@ g_L = array([-2e19]*HORIZON)
 g_U = array([0]*HORIZON)
 
 print ("g_L", g_L, g_U)
-
 
 for main_iteration in range(NUM_MPC_ITERATION):
     print ("Num Iteratin: ", main_iteration)
@@ -430,8 +404,6 @@ for main_iteration in range(NUM_MPC_ITERATION):
         x2_new = x2 + hc * (((F / V) * (-x2) + (-Dh / (sigma * cp)) *
                              (k0 * ((numpy.exp(-E / (R * (x2 + Ts))) * (x1 + CAs) * (x1 + CAs)) -
                                       numpy.exp(-E / (R * Ts)) * CAs * CAs)) + (x[0] / (sigma * cp * V)))+5*float(w2))
-
-
 
         x1 = x1_new
         x2 = x2_new
