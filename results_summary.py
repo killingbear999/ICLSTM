@@ -50,11 +50,11 @@ print(y_predict.shape)
 
 y_predict = y_predict.reshape(-1,2)
 y_predict = scaler_y.inverse_transform(y_predict)
-y_predict = y_predict.reshape(-1,20,2)
+y_predict = y_predict.reshape(-1,10,2)
 
 X_plot = X_test.reshape(-1,num_dims)
 X_plot = scaler_X.inverse_transform(X_plot)
-X_plot = X_plot.reshape(-1,20,num_dims)
+X_plot = X_plot.reshape(-1,10,num_dims)
 
 for i in range(10):
     if i == 0:  # only add label to 1 data point
