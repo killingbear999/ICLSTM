@@ -1,4 +1,4 @@
-# fastMPC
+# ICLSTM for fast MPC
 **Library for code execution: Tensorflow Keras, Pyipopt, Numpy** </br> </br>
 File description:
 * CSTR_data_generation.py is used to generate training data </br>
