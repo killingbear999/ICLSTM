@@ -184,7 +184,7 @@ def eval_f(x):
         est_outlet_product = df_ensemble_output[j, :, 0:2]
         for i in range (int(NUM_IN_SEQUENCE/short_factor)):  #NUM_IN_SEQUENCE/2
              offset = offset + (setpoint[0] - (est_outlet_product[i, 0]))  + (setpoint[1] - (est_outlet_product[i, 1])) * 1000
-        offset=offset+x[2*j] *3e-10 + 1* x[2*j+1]
+        offset=offset+x[2*j] ** 2 *3e-10 + 1* x[2*j+1] ** 2
 
     return offset/100
 
