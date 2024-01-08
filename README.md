@@ -7,5 +7,5 @@ File description:
 * mpc.py is used to incorporate deep learning model into mpc and compute runtime </br>
 * CSTR_data_testing.ipynb was used in model design and model evaluation during the experimental process
 
-**If .py files do not work, you may run the CSTR_data_testing.ipynb. It is a bit messy. I will clean up the code asap.
-**Pyipopt can be installed and run on Docker (i.e., mpc.py).
+**If .py files do not work, you may run the CSTR_data_testing.ipynb. It is a bit messy. I will clean up the code asap.** </br>
+**Pyipopt can be installed and run on Docker (i.e., mpc.py).**
