@@ -1,11 +1,11 @@
 # ICLSTM for fast MPC
-**Library for code execution: Tensorflow Keras, Pyipopt, Numpy** </br> </br>
-File description:
-* CSTR_data_generation.py is used to generate training data </br>
-* icrnn.py, lstm.py, iclstm.py, cnn1d.py, rescnn1d.py, icnn.py are deep learning models built using Tensorflow Keras </br>
-* results_summary.py is used to analyse model performance </br>
-* mpc.py is used to incorporate deep learning model into mpc and compute runtime </br>
-* CSTR_data_testing.ipynb was used in model design and model evaluation during the experimental process
+**Library for code execution: Tensorflow Keras, Pyipopt, Numpy, sklearn** </br> </br>
 
-**If .py files do not work, you may run the CSTR_data_testing.ipynb. It is a bit messy. I will clean up the code asap and upload the trained model for MPC part as well.** </br>
-**Pyipopt can be installed and run on Docker (i.e., mpc.py).**
+File description:
+* CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb are used to train neural networks to learn the system dynamics. </br>
+* cstr_iclstm.py and cstr_nns.py are .py version to train neural networks to learn the system dynamics. They are identical to CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb. </br>
+* model26.h5, model27.h5, model28.h5, model29.h5 are trained RNN, LSTM, ICRNN, and ICLSTM respectively. You may regenerate the models using CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb. <br>
+* mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb are used to integrate NNs into LMPC and solve the MPC optimization problem.
+
+**.ipynb files can be run on Jupyter Notebook or Google Colab.**
+**Pyipopt can be installed and run on Docker. mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb use Pyipopt.**
