@@ -1,5 +1,5 @@
 # ICLSTM for fast MPC
-**Library for code execution: Tensorflow Keras, Pyipopt, Numpy, sklearn** </br> </br>
+**Library for code execution: Tensorflow Keras, Pyipopt, Numpy, sklearn** </br>
 
 File description:
 * CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb are used to train neural networks to learn the system dynamics. </br>
