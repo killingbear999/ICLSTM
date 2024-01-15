@@ -1,4 +1,4 @@
-# ICLSTM for fast MPC
+# ICLSTM for Fast MPC
 **Library for code execution: Tensorflow Keras, Pyipopt, Numpy, sklearn** </br>
 
 File description:
