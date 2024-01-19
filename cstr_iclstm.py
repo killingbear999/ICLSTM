@@ -207,6 +207,7 @@ x = Dense(X_train.shape[2], activation='relu', kernel_constraint=tf.keras.constr
 x = Add()([x, x_skip])
 x = LSTM(64, activation='relu', return_sequences=True, kernel_constraint=tf.keras.constraints.NonNeg())(x)
 x = Dense(X_train.shape[2], activation='relu', kernel_constraint=tf.keras.constraints.NonNeg())(x)
+x = Add()([x, x_skip])
 x = Dense(2, activation='linear', kernel_constraint=tf.keras.constraints.NonNeg())(x)
 model = Model(input, x)
 
