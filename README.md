@@ -2,7 +2,7 @@
 Zihao Wang, Zhe Wu </br>
 Paper: https://arxiv.org/abs/2311.07202 </br>
 
-**Library for code execution: Tensorflow Keras, Pyipopt, Numpy, Sklearn** </br>
+**Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn** </br>
 
 File description:
 * docker.pptx includes the instruction on how to install Pyipopt into Docker on your laptop. </br>
