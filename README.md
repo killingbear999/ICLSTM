@@ -15,11 +15,13 @@ FYI:
 * .ipynb files can be run on Jupyter Notebook or Google Colab.
 * Pyipopt can be installed and run on Docker. mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb use Pyipopt.
 
-**Citation**
+## Citation </br>
 If you find our work relevant to your research, please cite:
+```
 @article{wang2023input,
   title={Input Convex LSTM: A Convex Approach for Fast Lyapunov-Based Model Predictive Control},
   author={Wang, Zihao and Wu, Zhe},
   journal={arXiv preprint arXiv:2311.07202},
   year={2023}
 }
+```
