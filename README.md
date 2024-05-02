@@ -1,4 +1,4 @@
-# Input Convex LSTM: A Convex Approach for Fast Lyapunov-Based Model Predictive Control
+# Input Convex LSTM: A Convex Approach for Fast Model Predictive Control
 
 Zihao Wang, Zhe Wu </br>
 Paper: https://arxiv.org/abs/2311.07202 </br>
