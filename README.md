@@ -6,8 +6,9 @@ Paper: https://arxiv.org/abs/2311.07202 </br>
 **Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn** </br>
 File description:
 * docker.pptx includes the instruction on how to install Pyipopt into Docker on your laptop. </br>
+* ICLSTM_toy_examples.ipynb demonstrates the input convexity of ICLSTM in some 3D toy examples. <\br>
 * CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb are used to train neural networks to learn the system dynamics. </br>
-* model26.h5, model27.h5, model28.h5, iclstm.h5 are trained RNN, LSTM, ICRNN, and ICLSTM respectively. You may regenerate the models using CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb. <br>
+* model26.h5, model27.h5, model28.h5, iclstm_scaled.h5 are trained RNN, LSTM, ICRNN, and ICLSTM respectively. You may regenerate the models using CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb. <br>
 * mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb are used to integrate NNs into LMPC and solve the MPC optimization problem.
 
 FYI:
