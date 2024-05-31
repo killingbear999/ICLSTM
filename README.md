@@ -1,7 +1,7 @@
 # Input Convex LSTM: A Convex Approach for Fast Model Predictive Control
 
 Zihao Wang, Donghan Yu, Zhe Wu </br>
-Paper: https://arxiv.org/abs/2311.07202 </br>
+Paper: https://arxiv.org/abs/2311.07202 (This version is outdated, we are working on the updated version) </br>
 
 **Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn** </br>
 File description:
