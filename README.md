@@ -18,7 +18,7 @@ FYI:
 * Pyipopt can be installed and run on Docker. mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb use Pyipopt.
 
 The ICLSTM cell follows the structure as follows:
-![alt text](https://github.com/killingbear999/ICLSTM/blob/main/ICLSTM_cell.pdf)
+![alt text](https://github.com/killingbear999/ICLSTM/blob/main/ICLSTM_cell.png)
 
 ## Citation </br>
 If you find our work relevant to your research, please cite:
