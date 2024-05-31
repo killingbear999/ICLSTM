@@ -30,7 +30,7 @@ $c_t = f_tc_{t-1} + i_tc_{temp}$ </br>
 $h_t = o_tReLU(c_t)$ </br>
 where 
 * $D_f$, $D_i$, $D_c$, $D_o$, $U_f$, $U_i$, $U_c$, $U_o$ are non-negative trainable scaling vectors
-* $W_h$, $W_x$ are non-nagative trainable weights (i.e., sharing weights across all gates)
+* $W_h$, $W_x$ are non-negative trainable weights (i.e., sharing weights across all gates)
 * $b_f$, $b_i$, $b_c$, $b_o$ are trainable bias
 
 ## Citation </br>
