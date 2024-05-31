@@ -21,6 +21,18 @@ The ICLSTM cell follows the structure as follows: </br>
 </br>
 ![alt text](https://github.com/killingbear999/ICLSTM/blob/main/ICLSTM_cell.png)
 
+Specifically, </br>
+$f_t = ReLU[D_f(W_hh_{t-1}) + U_f(W_x[x_t,-x_t]) + b_f]$ </br>
+$i_t = ReLU[D_i(W_hh_{t-1}) + U_i(W_x[x_t,-x_t]) + b_i]$ </br>
+$c_{temp} = ReLU[D_c(W_hh_{t-1}) + U_c(W_x[x_t,-x_t]) + b_c]$ </br>
+$o_t = ReLU[D_o(W_hh_{t-1}) + U_o(W_x[x_t,-x_t]) + b_o]$ </br>
+$c_t = f_tc_{t-1} + i_tc_{temp}$ </br>
+$h_t = o_tReLU(c_t)$ </br>
+where 
+* $D_f$, $D_i$, $D_c$, $D_o$, $U_f$, $U_i$, $U_c$, $U_o$ are non-negative trainable scaling vectors
+* $W_h$, $W_x$ are non-nagative trainable weights (i.e., sharing weights across all gates)
+* $b_f$, $b_i$, $b_c$, $b_o$ are trainable bias
+
 ## Citation </br>
 If you find our work relevant to your research, please cite:
 ```
