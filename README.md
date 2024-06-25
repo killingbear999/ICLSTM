@@ -1,4 +1,4 @@
-# Input Convex LSTM: A Convex Approach for Fast Model Predictive Control
+# Real-Time Machine-Learning-Based Optimization for Energy Systems using Input Convex LSTM
 
 Zihao Wang, Donghan Yu, Zhe Wu </br>
 Paper: https://arxiv.org/abs/2311.07202 (This version is outdated, we are working on the updated version) </br>
