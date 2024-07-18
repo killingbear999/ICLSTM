@@ -7,7 +7,7 @@ Paper: https://arxiv.org/abs/2311.07202 </br>
 
 **File description** </br>
 * docker.pptx includes the instruction on how to install Pyipopt into Docker on your laptop </br>
-* ICLSTM_toy_examples.ipynb demonstrates the input convexity of ICLSTM in some 3D toy examples on surface fitting of non-convex bivariate scalar functions</br>
+* ICLSTM_toy_examples.ipynb demonstrates the input convexity of ICLSTM in some 3D toy examples on surface fitting of non-convex bivariate scalar functions (we have constructed three examples for you to play around) </br>
 * Under CSTR subfolder:
   1. CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb are used to train neural networks to learn the system dynamics </br>
 * Under MPC subfolder:
@@ -69,7 +69,7 @@ where
 * ICLSTM-based MPC enjoys a faster (on average **$\times$ 8**) solving time compared to LSTM on a solar PV energy system example (i.e., for a scaled-up solar PV energy system or a longer prediction horizon, the time discrepancy will be even greater)
 
 ## Citation </br>
-If you find our work relevant to your research, please cite:
+If you find our work relevant to your research, please cite (and star this repository):
 ```
 @article{wang2023input,
   title={Input Convex LSTM: A Convex Approach for Fast Lyapunov-Based Model Predictive Control},
