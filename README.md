@@ -22,6 +22,7 @@ Paper: https://arxiv.org/abs/2311.07202 </br>
 * Neural network-based optimization suffers from slow computation times, limiting its applicability in real-time tasks </br>
 * Computational efficiency is a critical parameter for real-world and real-time implementation of neural network-based optimization </br>
 * The optima of convex optimization problems are easier and faster to obtain than those of non-convex optimization problems </br>
+* Long Short-Term Memory (LSTM) network's advanced gating architecture, which has been well documented in the literature </br>
 
 **Objective** </br>
 * Proposes an Input Convex Long Short-Term Memory (ICLSTM) neural network to increase computational efficiency (by preserving the convexity in neural network-based optimization) for real-time neural network-based optimization (e.g., model predictive control (MPC))
