@@ -23,6 +23,9 @@ Paper: https://arxiv.org/abs/2311.07202 </br>
 * Computational efficiency is a critical parameter for real-world and real-time implementation of neural network-based optimization </br>
 * The optima of convex optimization problems are easier and faster to obtain than those of non-convex optimization problems </br>
 
+**Objective** </br>
+* Proposes an Input Convex Long Short-Term Memory (ICLSTM) neural network to increase computational efficiency (by preserving the convexity in neural network-based optimization) for real-time neural network-based optimization (e.g., model predictive control (MPC))
+
 **Architecture** </br>
 
 The ICLSTM cell follows the structure: </br>
@@ -61,7 +64,7 @@ where
 * $g^y$ is convex, non-decreasing activation function
 
 **Results** </br>
-* ICLSTM-based Model Predictive Control (MPC) achieved convergence in 15 initial conditions (i.e., it achieved the fastest convergence in 13 out of 15 different initial conditions) on a continuous stirred tank reactor (CSTR) example, with an average percentage decrease in computational time of **54.4%**, **40.0%**, and **41.3%** compared to plain RNN, plain LSTM, and ICRNN, respectively </br>
+* ICLSTM-based MPC achieved convergence in 15 initial conditions (i.e., it achieved the fastest convergence in 13 out of 15 different initial conditions) on a continuous stirred tank reactor (CSTR) example, with an average percentage decrease in computational time of **54.4%**, **40.0%**, and **41.3%** compared to plain RNN, plain LSTM, and ICRNN, respectively </br>
 * ICLSTM-based MPC enjoys a faster (on average **$\times$ 8**) solving time compared to LSTM on a solar PV energy system example (i.e., for a scaled-up solar PV energy system or a longer prediction horizon, the time discrepancy will be even greater)
 
 ## Citation </br>
