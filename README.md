@@ -4,7 +4,8 @@ Zihao Wang, Donghan Yu, Zhe Wu </br>
 Paper: https://arxiv.org/abs/2311.07202 </br>
 
 **Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn** </br>
-File description:
+
+**File description** </br>
 * docker.pptx includes the instruction on how to install Pyipopt into Docker on your laptop </br>
 * ICLSTM_toy_examples.ipynb demonstrates the input convexity of ICLSTM in some 3D toy examples on surface fitting of non-convex bivariate scalar functions</br>
 * Under CSTR subfolder:
@@ -23,11 +24,13 @@ File description:
 * The optima of convex optimization problems are easier and faster to obtain than those of non-convex optimization problems </br>
 
 **Architecture** </br>
+
 The ICLSTM cell follows the structure: </br>
 </br>
 ![alt text](https://github.com/killingbear999/ICLSTM/blob/main/ICLSTM_cell.png)
 
 Specifically, </br>
+
 $f_t = g[D_f(W_hh_{t-1} + W_x[x_t,-x_t]) + b_f]$ </br>
 $i_t = g[D_i(W_hh_{t-1} + W_x[x_t,-x_t]) + b_i]$ </br>
 $c_{temp} = g[D_c(W_hh_{t-1} + W_x[x_t,-x_t]) + b_c]$ </br>
@@ -47,6 +50,7 @@ The output of $L$-layer ICLSTM follows the structure: </br>
 ![alt text](https://github.com/killingbear999/ICLSTM/blob/main/ICLSTM_nlayer.png)
 
 Specifically, </br>
+
 $z = g^d(W_dh_t + b_d) + [x_t,-x_t]$ </br>
 $y = g^y(W_yz + b_y)$ </br>
 
@@ -58,7 +62,7 @@ where
 
 **Results** </br>
 * ICLSTM-based Model Predictive Control (MPC) achieved convergence in 15 initial conditions (i.e., it achieved the fastest convergence in 13 out of 15 different initial conditions) on a continuous stirred tank reactor (CSTR) example, with an average percentage decrease in computational time of **54.4%**, **40.0%**, and **41.3%** compared to plain RNN, plain LSTM, and ICRNN, respectively </br>
-* ICLSTM-based MPC enjoys a faster (on average **$\times 8$**) solving time compared to LSTM on a solar PV energy system example (i.e., for a scaled-up solar PV energy system or a longer prediction horizon, the time discrepancy will be even greater)
+* ICLSTM-based MPC enjoys a faster (on average **$\times$ 8**) solving time compared to LSTM on a solar PV energy system example (i.e., for a scaled-up solar PV energy system or a longer prediction horizon, the time discrepancy will be even greater)
 
 ## Citation </br>
 If you find our work relevant to your research, please cite:
