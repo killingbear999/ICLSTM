@@ -69,7 +69,7 @@ where
 * ICLSTM-based MPC enjoys a faster (on average **$\times$ 8**) solving time compared to LSTM on a solar PV energy system example (i.e., for a scaled-up solar PV energy system or a longer prediction horizon, the time discrepancy will be even greater)
 
 ## Citation </br>
-If you find our work relevant to your research, please cite (and star this repository):
+If you find our work relevant to your research, please cite:
 ```
 @article{wang2023input,
   title={Input Convex LSTM: A Convex Approach for Fast Lyapunov-Based Model Predictive Control},
