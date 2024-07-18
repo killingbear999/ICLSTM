@@ -1,7 +1,7 @@
 # Real-Time Machine-Learning-Based Optimization Using Input Convex LSTM
 
 Zihao Wang, Donghan Yu, Zhe Wu </br>
-Paper: https://arxiv.org/abs/2311.07202 (We have updated the paper to the latest version.) </br>
+Paper: https://arxiv.org/abs/2311.07202 </br>
 
 **Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn** </br>
 File description:
@@ -22,14 +22,14 @@ The ICLSTM cell follows the structure as follows: </br>
 ![alt text](https://github.com/killingbear999/ICLSTM/blob/main/ICLSTM_cell.png)
 
 Specifically, </br>
-$f_t = ReLU[D_f(W_hh_{t-1}) + D_f(W_x[x_t,-x_t]) + b_f]$ </br>
-$i_t = ReLU[D_i(W_hh_{t-1}) + D_i(W_x[x_t,-x_t]) + b_i]$ </br>
-$c_{temp} = ReLU[D_c(W_hh_{t-1}) + D_c(W_x[x_t,-x_t]) + b_c]$ </br>
-$o_t = ReLU[D_o(W_hh_{t-1}) + D_o(W_x[x_t,-x_t]) + b_o]$ </br>
+$f_t = ReLU[D_f(W_hh_{t-1} + W_x[x_t,-x_t]) + b_f]$ </br>
+$i_t = ReLU[D_i(W_hh_{t-1} + W_x[x_t,-x_t]) + b_i]$ </br>
+$c_{temp} = ReLU[D_c(W_hh_{t-1} + W_x[x_t,-x_t]) + b_c]$ </br>
+$o_t = ReLU[D_o(W_hh_{t-1} + W_x[x_t,-x_t]) + b_o]$ </br>
 $c_t = f_tc_{t-1} + i_tc_{temp}$ </br>
 $h_t = o_tReLU(c_t)$ </br>
 where 
-* $D_f$, $D_i$, $D_c$, $D_o$ are non-negative trainable scaling vectors
+* $D_f$, $D_i$, $D_c$, $D_o$ are non-negative trainable scaling vectors to differentiate different gates
 * $W_h$, $W_x$ are non-negative trainable weights (i.e., sharing weights across all gates)
 * $b_f$, $b_i$, $b_c$, $b_o$ are trainable bias
 
