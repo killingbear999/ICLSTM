@@ -67,7 +67,7 @@ where
 
 **Results** </br>
 * ICLSTM-based MPC achieved convergence in 15 initial conditions (i.e., it achieved the fastest convergence in 13 out of 15 different initial conditions) on a continuous stirred tank reactor (CSTR) example, with an average percentage decrease in computational time of **54.4%**, **40.0%**, and **41.3%** compared to plain RNN, plain LSTM, and ICRNN, respectively </br>
-* ICLSTM-based MPC enjoys a faster (on average **$\times$ 8**) solving time compared to LSTM on a solar PV energy system example (i.e., for a scaled-up solar PV energy system or a longer prediction horizon, the time discrepancy will be even greater)
+* ICLSTM-based MPC enjoys a faster (at least **4 $\times$**) solving time compared to LSTM on a solar PV energy system example (i.e., for a scaled-up solar PV energy system or a longer prediction horizon, the time discrepancy will be even greater)
 
 ## Citation </br>
 If you find our work relevant to your research, please cite:
