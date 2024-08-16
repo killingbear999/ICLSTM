@@ -12,7 +12,8 @@ Paper: https://arxiv.org/abs/2311.07202 </br>
   1. CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb are used to train neural networks to learn the system dynamics </br>
 * Under MPC subfolder:
   1. rnn.h5, lstm.h5, icrnn.h5, iclstm.h5 are trained RNN, LSTM, ICRNN, and ICLSTM respectively. You may regenerate the models using CSTR_ICLSTM.ipynb and CSTR_NNs.ipynb <br>
-  2. mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb are used to integrate NNs into LMPC and solve the MPC optimization problem
+  2. mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb are used to integrate NNs into LMPC and solve the MPC optimization problem <br>
+  3. mpc_first_principles.ipynb uses the first-principles model to solve the MPC optimization problem
 * FYI:
   1. .ipynb files can be run on Jupyter Notebook or Google Colab </br>
   2. Pyipopt can be installed and run on Docker. mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb use Pyipopt </br>
