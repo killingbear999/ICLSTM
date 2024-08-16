@@ -1,7 +1,7 @@
 # Real-Time Machine-Learning-Based Optimization Using Input Convex LSTM
 
 Zihao Wang, Donghan Yu, Zhe Wu </br>
-Paper: https://arxiv.org/abs/2311.07202 </br>
+Paper: https://arxiv.org/abs/2311.07202 (we are revising the manuscript) </br>
 
 **Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn** </br>
 
