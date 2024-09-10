@@ -1,11 +1,13 @@
-# Real-Time Machine-Learning-Based Optimization Using Input Convex LSTM
+# Real-Time Machine-Learning-Based Optimization Using Input Convex Long Short-Term Memory Network
 
 Zihao Wang, Donghan Yu, Zhe Wu </br>
+Accepted by Applied Energy (in press) </br>
 Paper: https://arxiv.org/abs/2311.07202 (we are revising the manuscript) </br>
 
 **Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn** </br>
 
 **File description** </br>
+* ICLSTM_poster.pdf is the poster version of the paper </br>
 * docker.pptx includes the instruction on how to install Pyipopt into Docker on your laptop </br>
 * ICLSTM_toy_examples.ipynb demonstrates the input convexity of ICLSTM in some 3D toy examples on surface fitting of non-convex bivariate scalar functions (we have constructed three examples for you to play around) </br>
 * Under CSTR subfolder:
