@@ -1,8 +1,8 @@
 # Real-Time Machine-Learning-Based Optimization Using Input Convex Long Short-Term Memory Network
 
 Zihao Wang, Donghan Yu, Zhe Wu </br>
-**Applied Energy (in press)** </br>
-Paper: https://arxiv.org/abs/2311.07202 </br>
+**Applied Energy** </br>
+Paper: https://www.sciencedirect.com/science/article/pii/S0306261924018555?dgcid=coauthor </br>
 
 Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn </br>
 
