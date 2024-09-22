@@ -2,7 +2,7 @@
 
 Zihao Wang, Donghan Yu, Zhe Wu </br>
 **Applied Energy** </br>
-Paper: https://www.sciencedirect.com/science/article/pii/S0306261924018555?dgcid=coauthor </br>
+Paper: https://doi.org/10.1016/j.apenergy.2024.124472 </br>
 
 Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn </br>
 
