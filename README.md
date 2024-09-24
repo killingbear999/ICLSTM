@@ -74,10 +74,13 @@ where
 ## Citation </br>
 If you find our work relevant to your research, please cite:
 ```
-@article{wang2023input,
-  title={Input Convex LSTM: A Convex Approach for Fast Lyapunov-Based Model Predictive Control},
-  author={Wang, Zihao and Wu, Zhe},
-  journal={arXiv preprint arXiv:2311.07202},
-  year={2023}
+@article{wang2025real,
+  title={Real-time machine-learning-based optimization using Input Convex Long Short-Term Memory network},
+  author={Wang, Zihao and Yu, Donghan and Wu, Zhe},
+  journal={Applied Energy},
+  volume={377},
+  pages={124472},
+  year={2025},
+  publisher={Elsevier}
 }
 ```
