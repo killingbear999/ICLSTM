@@ -6,7 +6,7 @@ Paper: https://doi.org/10.1016/j.apenergy.2024.124472 </br>
 
 Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn </br>
 
-**File description** </br>
+### File description
 * ICLSTM_poster.pdf is the poster version of the paper </br>
 * docker.pptx includes the instruction on how to install Pyipopt into Docker on your laptop </br>
 * ICLSTM_toy_examples.ipynb demonstrates the input convexity of ICLSTM in some 3D toy examples on surface fitting of non-convex bivariate scalar functions (we have constructed three examples for you to play around) </br>
@@ -20,17 +20,17 @@ Requires: Python 3.11.3, Tensorflow Keras 2.13.0, Pyipopt, Numpy, Sklearn </br>
   1. .ipynb files can be run on Jupyter Notebook or Google Colab </br>
   2. Pyipopt can be installed and run on Docker. mpc_rnn.ipynb, mpc_lstm.ipynb, mpc_icrnn.ipynb, mpc_iclstm.ipynb use Pyipopt </br>
 
-**Motivation** </br>
+### Motivation
 * Traditional model-based optimization and control rely on the development of first-principles models, a process that is resource-intensive </br>
 * Neural network-based optimization suffers from slow computation times, limiting its applicability in real-time tasks </br>
 * Computational efficiency is a critical parameter for real-world and real-time implementation of neural network-based optimization </br>
 * The optima of convex optimization problems are easier and faster to obtain than those of non-convex optimization problems </br>
 * Long Short-Term Memory (LSTM) network's advanced gating architecture, which has been well documented in the literature </br>
 
-**Objective** </br>
+### Objective
 * Proposes an Input Convex Long Short-Term Memory (ICLSTM) neural network to increase computational efficiency (by preserving the convexity in neural network-based optimization) for real-time neural network-based optimization (e.g., model predictive control (MPC))
 
-**Architecture** </br>
+### Architecture
 
 The ICLSTM cell follows the structure: </br>
 </br>
@@ -67,7 +67,7 @@ where
 * $g^d$ is convex, non-negative, and non-decreasing activation function (e.g., ReLU)
 * $g^y$ is convex, non-decreasing activation function
 
-**Results** </br>
+### Results
 * ICLSTM-based MPC achieved convergence in 15 initial conditions (i.e., it achieved the fastest convergence in 13 out of 15 different initial conditions) on a continuous stirred tank reactor (CSTR) example, with an average percentage decrease in computational time of **54.4%**, **40.0%**, and **41.3%** compared to plain RNN, plain LSTM, and ICRNN, respectively </br>
 * ICLSTM-based MPC enjoys a faster (at least **4 $\times$**) solving time compared to LSTM on a solar PV energy system example (i.e., for a scaled-up solar PV energy system or a longer prediction horizon, the time discrepancy will be even greater)
 
